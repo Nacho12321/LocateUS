@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Injury Details"
+        android:id="@+id/textView5"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_above="@+id/textView6"
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignStart="@+id/textView8" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ImageInjury"
+        android:id="@+id/ImageInjury"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="lauchCamera"
+        android:nestedScrollingEnabled="false" />
+
+    <ImageView
+        android:layout_width="325dp"
+        android:layout_height="200dp"
+        android:id="@+id/OnlyImage"
+        android:layout_above="@+id/ImageInjury"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/InjuryType"
+        android:layout_above="@+id/textView8"
+        android:layout_alignRight="@+id/editText"
+        android:layout_alignEnd="@+id/editText"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_above="@+id/OnlyImage"
+        android:layout_alignLeft="@+id/OnlyImage"
+        android:layout_alignStart="@+id/OnlyImage"
+        android:layout_alignRight="@+id/OnlyImage"
+        android:layout_alignEnd="@+id/OnlyImage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Injury Type"
+        android:id="@+id/textView6"
+        android:layout_above="@+id/InjuryType"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Injury Location"
+        android:id="@+id/textView8"
+        android:layout_above="@+id/editText"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
