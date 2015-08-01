@@ -50,7 +50,7 @@ public class InjuryTypeFragment extends StudentFlow.PlaceholderFragment {
     //Checks if user has a camera
     private boolean hasCamera() {
         Toast.makeText(getActivity().getApplicationContext(), "Has Camera", Toast.LENGTH_LONG).show();
-        boolean b=true;
+        boolean b;
         PackageManager pm = getActivity().getApplicationContext().getPackageManager();
         b = pm.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
         return b;
