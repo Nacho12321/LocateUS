@@ -24,7 +24,7 @@ public class GroupMemberFragment extends StudentFlow.PlaceholderFragment  {
 //    ViewGroup container1;
 //    View view1 = inflater1.inflate(R.layout.fragment_student_flow, container1, false);
     SQLiteDatabase db;
-    DBHelper dbh;
+
     String [] allCols = new String[]{"MemberId", "MemberName"};
 
     @Override
@@ -52,7 +52,7 @@ public class GroupMemberFragment extends StudentFlow.PlaceholderFragment  {
         // get gid from parameter...bundle, interface blah...
 
         int gid=6;
-        dbh.getInstance(getActivity().getApplicationContext());
+        DBHelper dbh = DBHelper.getInstance(getActivity().getApplicationContext());
         db = dbh.getReadableDatabase();
         String strSQL = "Select MemberId, MemberName from GroupMemberMaster where GroupId=" + gid + " ORDER BY MemberName";
 //        Cursor c = db.rawQuery(strSQL, null);

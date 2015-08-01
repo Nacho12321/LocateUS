@@ -54,17 +54,17 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean Val(DBHelper dbh1) {
-        boolean a;
-        if (dbh1.getWritableDatabase() == null) {
-            a= false;
-            dbh1.close();
-        }
-        else{
-            a=true;
-        }
-        return  a;
-    }
+//    public boolean Val(DBHelper dbh1) {
+//        boolean a;
+//        if (dbh1.getWritableDatabase() == null) {
+//            a= false;
+//            dbh1.close();
+//        }
+//        else{
+//            a=true;
+//        }
+//        return  a;
+//    }
 //    //    Add new row to the table
 //    public void addDetails(Grouper grouper){
 //        ContentValues values = new ContentValues();

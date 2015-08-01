@@ -23,7 +23,7 @@ public class InjuryTypeFragment extends StudentFlow.PlaceholderFragment {
     static final int REQUEST_IMAGE_CAPTURE = 1;
    // static final int RESULT_OK= 1;
     ImageView OnlyImage;
-    private PackageManager packageManager;
+
 
     @Nullable
     @Override
@@ -51,7 +51,8 @@ public class InjuryTypeFragment extends StudentFlow.PlaceholderFragment {
     private boolean hasCamera() {
         Toast.makeText(getActivity().getApplicationContext(), "Has Camera", Toast.LENGTH_LONG).show();
         boolean b=true;
-        b = getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
+        PackageManager pm = getActivity().getApplicationContext().getPackageManager();
+        b = pm.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);
         return b;
     }
 
@@ -71,8 +72,4 @@ public class InjuryTypeFragment extends StudentFlow.PlaceholderFragment {
         }
     }
 
-
-    public PackageManager getPackageManager() {
-        return packageManager;
-    }
 }

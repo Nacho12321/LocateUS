@@ -26,7 +26,7 @@ import android.database.Cursor;
 
 public class GroupColorFragment extends StudentFlow.PlaceholderFragment {
     SQLiteDatabase db;
-    DBHelper dbh;
+
 
     public int k;
 
@@ -57,8 +57,9 @@ public class GroupColorFragment extends StudentFlow.PlaceholderFragment {
                     InputStream csvStream = assetManager.open("GPS_TRACKER_DATABASE1.csv");
                     InputStreamReader csvStreamReader = new InputStreamReader(csvStream);
                     BufferedReader br = new BufferedReader(csvStreamReader);
-                    dbh.getInstance(getActivity().getApplicationContext());
+                    DBHelper dbh = DBHelper.getInstance(getActivity().getApplicationContext());
                     db = dbh.getWritableDatabase();
+
 //                  db.execSQL("Create Table GroupMemberMaster (MemberId char(2), MemberName char(20), GroupId int);");
                     String line;
                     while ((line = br.readLine()) != null) {
