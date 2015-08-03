@@ -37,6 +37,7 @@ public class GroupColor extends ActionBarActivity {
 
                         } else if (Green.isChecked()) {
                             startActivity(new Intent(GroupColor.this, PastStatusFlow.class));
+
                         } else if (Yellow.isChecked()) {
                             startActivity(new Intent(GroupColor.this, PastStatusFlow.class));
 

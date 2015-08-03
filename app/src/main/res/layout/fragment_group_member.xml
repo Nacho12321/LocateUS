@@ -14,67 +14,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp" />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="100dp">
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Member1"
-            android:id="@+id/Member1"
-            android:layout_gravity="center_horizontal"
-            android:checked="false" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Member2"
-            android:id="@+id/Member2"
-            android:layout_gravity="center_horizontal"
-            android:checked="false" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Member3"
-            android:id="@+id/Member3"
-            android:layout_gravity="center_horizontal"
-            android:checked="false" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Member4"
-            android:id="@+id/Member4"
-            android:layout_gravity="center_horizontal"
-            android:checked="false" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Member5"
-            android:id="@+id/Member5"
-            android:layout_gravity="center_horizontal"
-            android:checked="false" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Member6"
-            android:id="@+id/Member6"
-            android:layout_gravity="center_horizontal"
-            android:checked="false" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Member7"
-            android:id="@+id/Member7"
-            android:layout_gravity="center_horizontal"
-            android:checked="false" />
-    </LinearLayout>
+    <ListView
+        android:layout_width="200dp"
+        android:layout_height="350dp"
+        android:id="@+id/MemNames"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp" />
 
 </RelativeLayout>

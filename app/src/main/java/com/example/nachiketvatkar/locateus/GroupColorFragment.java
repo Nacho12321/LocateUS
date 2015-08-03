@@ -1,5 +1,6 @@
 package com.example.nachiketvatkar.locateus;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.database.Cursor;
@@ -9,6 +10,7 @@ import android.database.sqlite.SQLiteQuery;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android. view.ViewGroup;
@@ -26,7 +28,6 @@ import android.database.Cursor;
 
 public class GroupColorFragment extends StudentFlow.PlaceholderFragment {
     SQLiteDatabase db;
-
 
     public int k;
 
@@ -77,18 +78,19 @@ public class GroupColorFragment extends StudentFlow.PlaceholderFragment {
 
 
                     if (Orange.isChecked()) {
-                        k = 1;
+                        StudentFlow.groupId=1;
                      } else if (Red.isChecked()) {
-                        k = 2;
-                     } else if (Purple.isChecked()) {
-                        k = 3;
-                     } else if (Green.isChecked()) {
-                        k = 4;
-                     } else if (Yellow.isChecked()) {
-                        k = 5;
+                        StudentFlow.groupId=2;
+                    } else if (Purple.isChecked()) {
+                        StudentFlow.groupId=3;
+                    } else if (Green.isChecked()) {
+                        StudentFlow.groupId=4;
+                    } else if (Yellow.isChecked()) {
+                        StudentFlow.groupId=5;
                      } else if (Pink.isChecked()) {
-                        k = 6;
-                     }
+                        StudentFlow.groupId=6;
+
+                    }
 
 //                }
 //        else{
@@ -107,18 +109,29 @@ public class GroupColorFragment extends StudentFlow.PlaceholderFragment {
 //            }
 //        }
 
-//            GroupMemberFragment fragment = new GroupMemberFragment(); //  object of next fragment
-//            Bundle bundle = new Bundle();
-//            bundle.putInt("position",k);
-//            fragment.setArguments(bundle);
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
+        Toast.makeText(getActivity().getApplicationContext(), "hello fragment", Toast.LENGTH_LONG).show();
+        //Fragment fragment = this.getTargetFragment(); //  object of next fragment
+        GroupMemberFragment gmf = new GroupMemberFragment();
 
+        Bundle bundle = new Bundle();
+        bundle.putInt("position",1);
+        gmf.setArguments(bundle);
+
+//        FragmentManager fm = getFragmentManager();
+
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+//        ft.replace(R.id.the_fragg, gmf);
+//        ft.show(getFragmentManager().findFragmentById(R.id.the_fragg));
+//        ft.addToBackStack(null);
+        ft.commit();
 
     }
+
 
 //    private void executeSQL(String str) {
 //        SQLiteDatabase.CursorFactory c = null;

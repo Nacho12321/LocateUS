@@ -21,42 +21,50 @@
             android:layout_height="wrap_content"
             android:text="@string/OrangeText"
             android:id="@+id/Orange"
-            android:checked="false" />
+            android:checked="false"
+            android:elegantTextHeight="false"
+            android:clickable="false"
+            />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/PurpleText"
             android:id="@+id/Purple"
-            android:checked="false" />
+            android:checked="false"
+            />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/GreenText"
             android:id="@+id/Green"
-            android:checked="false" />
+            android:checked="false"
+            />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/RedText"
             android:id="@+id/Red"
-            android:checked="false" />
+            android:checked="false"
+             />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/YellowText"
             android:id="@+id/Yellow"
-            android:checked="false" />
+            android:checked="false"
+             />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/PinkText"
             android:id="@+id/Pink"
-            android:checked="false" />
+            android:checked="false"
+          />
 
     </RadioGroup>
 
