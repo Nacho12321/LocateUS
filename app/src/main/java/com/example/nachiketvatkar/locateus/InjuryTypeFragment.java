@@ -28,7 +28,7 @@ public class InjuryTypeFragment extends StudentFlow.PlaceholderFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Toast.makeText(getActivity().getApplicationContext(), "On Create View", Toast.LENGTH_LONG).show();
+//        Toast.makeText(getActivity().getApplicationContext(), "On Create View", Toast.LENGTH_LONG).show();
 
         View view = inflater.inflate(R.layout.fragment_injury_type, container, false);
         return view;
@@ -36,7 +36,7 @@ public class InjuryTypeFragment extends StudentFlow.PlaceholderFragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        Toast.makeText(getActivity().getApplicationContext(), "On View created", Toast.LENGTH_LONG).show();
+//        Toast.makeText(getActivity().getApplicationContext(), "On View created", Toast.LENGTH_LONG).show();
 
         Button ImageInjury = (Button) getView().findViewById(R.id.ImageInjury);
         OnlyImage = (ImageView) getView().findViewById(R.id.OnlyImage);
@@ -49,7 +49,7 @@ public class InjuryTypeFragment extends StudentFlow.PlaceholderFragment {
 
     //Checks if user has a camera
     private boolean hasCamera() {
-        Toast.makeText(getActivity().getApplicationContext(), "Has Camera", Toast.LENGTH_LONG).show();
+//        Toast.makeText(getActivity().getApplicationContext(), "Has Camera", Toast.LENGTH_LONG).show();
         boolean b;
         PackageManager pm = getActivity().getApplicationContext().getPackageManager();
         b = pm.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY);

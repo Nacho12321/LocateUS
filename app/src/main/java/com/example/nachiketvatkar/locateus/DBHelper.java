@@ -16,7 +16,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_CREATE = "create table " + TABLE_ASSORTMENT + "(" +
             "MemberId  char(2)," +
             "MemberName char(20)," +
-            "GroupId integer" +
+            "_id integer" +
             ");";
 
 

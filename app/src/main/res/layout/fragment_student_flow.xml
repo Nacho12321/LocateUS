@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:layout_marginTop="82dp"
-        android:id="@+id/radioGroup2"
+        android:id="@+id/Grouper1"
         android:layout_below="@+id/textView2"
         android:layout_alignLeft="@+id/textView2"
         android:layout_alignStart="@+id/textView2">
@@ -23,42 +23,49 @@
             android:layout_height="wrap_content"
             android:text="@string/OrangeText"
             android:id="@+id/Orange"
-            android:checked="false" />
+            android:checked="false"
+            android:clickable="true"
+            android:onClick="Orange1" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/PurpleText"
             android:id="@+id/Purple"
-            android:checked="false" />
+            android:checked="false"
+            android:onClick="Purple1" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/GreenText"
             android:id="@+id/Green"
-            android:checked="false" />
+            android:checked="false"
+            android:onClick="Green1" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/RedText"
             android:id="@+id/Red"
-            android:checked="false" />
+            android:checked="false"
+            android:onClick="Red1" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/YellowText"
             android:id="@+id/Yellow"
-            android:checked="false" />
+            android:checked="false"
+            android:onClick="Yellow1" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/PinkText"
             android:id="@+id/Pink"
-            android:checked="false" />
+            android:checked="false"
+            android:onClick="Pink1" />
 
     </RadioGroup>
 

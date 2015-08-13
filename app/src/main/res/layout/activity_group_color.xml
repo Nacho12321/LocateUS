@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="230dp"
         android:layout_marginTop="20dp"
-        android:id="@+id/radioGroup2"
+        android:id="@+id/Grouper1"
         android:layout_below="@+id/textView2"
         android:layout_alignLeft="@+id/CheckGS"
         android:layout_alignStart="@+id/CheckGS">
@@ -84,8 +84,17 @@
         android:layout_height="wrap_content"
         android:text="Check Group Status"
         android:id="@+id/CheckGS"
-        android:layout_below="@+id/radioGroup2"
+        android:layout_below="@+id/Grouper1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:id="@+id/Back"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp" />
 
 </RelativeLayout>

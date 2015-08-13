@@ -23,6 +23,15 @@ public class GroupColor extends ActionBarActivity {
         final RadioButton Red = (RadioButton)    findViewById(R.id.Red);
         final RadioButton Yellow = (RadioButton) findViewById(R.id.Yellow);
         final RadioButton Pink = (RadioButton)   findViewById(R.id.Pink);
+        Button back=(Button) findViewById(R.id.Back);
+        back.setOnClickListener(
+                new Button.OnClickListener(){
+                    public void onClick(View v){
+                        startActivity(new Intent(GroupColor.this,TeacherFlow.class));
+                    }
+
+                }
+        );
         CheckGS.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {

@@ -37,7 +37,7 @@ public class StudentFlow extends ActionBarActivity implements ActionBar.TabListe
      */
     ViewPager mViewPager;
 
-    static int groupId;
+    public static int groupIdr;
 
 
     @Override

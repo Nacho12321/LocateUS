@@ -16,9 +16,7 @@ import android.widget.Toast;
 
 // Receiver
 public class GroupMemberFragment extends StudentFlow.PlaceholderFragment {
-    //    LayoutInflater inflater1;
-//    ViewGroup container1;
-//    View view1 = inflater1.inflate(R.layout.fragment_student_flow, container1, false);
+
     SQLiteDatabase db;
 
     String[] allCols = new String[]{"MemberId", "MemberName"};
@@ -38,32 +36,26 @@ public class GroupMemberFragment extends StudentFlow.PlaceholderFragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        //GroupMemberFragment a = new GroupMemberFragment();
-        Bundle bundle = getArguments();
-        //int myInt = bundle.getInt("position");
-        int myInt = StudentFlow.groupId;
-//        CheckBox Member1 = (CheckBox) getActivity().findViewById(R.id.Member1);
-//        Member1.setText(myInt);
-//        SQLiteDatabase.CursorFactory fac = null;
-//        DBHelper mstr= new DBHelper(getActivity().getApplicationContext(),fac);
-//        String[] apple = mstr.sorting(myInt);
-        //get gid from parameter...bundle, interface blah...
+        int myInt = StudentFlow.groupIdr;
+//        int gid = myInt;
+//        int gid=1;
+        Toast.makeText(getActivity().getApplicationContext(), "SentInfo:" + myInt, Toast.LENGTH_SHORT).show();
 
-        int gid = myInt;
         DBHelper dbh = DBHelper.getInstance(getActivity().getApplicationContext());
         db = dbh.getReadableDatabase();
-        String strSQL = "Select MemberId, MemberName from GroupMemberMaster where GroupId=" + gid + " ORDER BY MemberName";
+        String strSQL = "Select MemberId, MemberName, GroupId as _id from GroupMemberMaster where GroupId=" + myInt + " ORDER BY MemberName";
         Cursor c = db.rawQuery(strSQL, null);
-        final CursorAdapter ca = new MemberName(getActivity().getApplicationContext(), c, 0);
-        final ListView listview = (ListView) getView().findViewById(R.id.MemNames);
+
+        CursorAdapter ca = new MemberName(getActivity().getApplicationContext(), c, 0);
+        ListView listview = (ListView) getView().findViewById(R.id.MemNames);
         listview.setAdapter(ca);
-        int record_num = 0;
+//        int record_num = 0;
 
-        while (c.moveToNext()) {
-            Toast.makeText(getActivity().getApplicationContext(), "record number:" + record_num++ + " " + c.getString(c.getColumnIndex("MemberName")), Toast.LENGTH_SHORT).show();
-        }
-        c.close();
+//        while (c.moveToNext()) {
+//            Toast.makeText(getActivity().getApplicationContext(), "record number:" + record_num++ + " " + c.getString(c.getColumnIndex("MemberName")), Toast.LENGTH_SHORT).show();
+//        }
+//        c.close();
     }
-
+ 
 
 }
