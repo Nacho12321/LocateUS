@@ -1,21 +1,14 @@
 package com.example.nachiketvatkar.locateus;
 
-import android.app.FragmentManager;
-import android.content.Context;
 import android.content.res.AssetManager;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteCursorDriver;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteQuery;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
-import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -24,7 +17,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-import android.database.Cursor;
 
 
 public class GroupColorFragment extends StudentFlow.PlaceholderFragment  {
@@ -42,7 +34,7 @@ public class GroupColorFragment extends StudentFlow.PlaceholderFragment  {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        RadioGroup Grouper1 = (RadioGroup) getView().findViewById(R.id.Grouper1);
+        final RadioGroup Grouper1 = (RadioGroup) getView().findViewById(R.id.Grouper1);
         final RadioButton Orange = (RadioButton) getView().findViewById(R.id.Orange);
         final RadioButton Purple = (RadioButton) getView().findViewById(R.id.Purple);
         final RadioButton Green = (RadioButton) getView().findViewById(R.id.Green);
@@ -78,104 +70,101 @@ public class GroupColorFragment extends StudentFlow.PlaceholderFragment  {
 //                    Toast.makeText(getActivity().getApplicationContext(), strSQL, Toast.LENGTH_LONG).show();
             }
 
-                    Grouper1.setOnCheckedChangeListener(
-                            new RadioGroup.OnCheckedChangeListener() {
-                                @Override
-                                public void onCheckedChanged(RadioGroup group, int checkedId) {
-                                    switch (checkedId){
-                                        case R.id.Orange:
-                                            Toast.makeText(getActivity().getApplicationContext(), "CheckedID"+checkedId, Toast.LENGTH_SHORT).show();
-                                            Orange.setOnClickListener(
-                                            new RadioButton.OnClickListener() {
-
+//                    Grouper1.setOnClickListener(
+//                            new RadioGroup.OnClickListener() {
+//                                @Override
+//                                public void onClick(View v) {
+                                    Grouper1.setOnCheckedChangeListener(
+                                            new RadioGroup.OnCheckedChangeListener(){
                                                 @Override
-                                                public void onClick(View v) {
-                                                    Orange1(v);
+                                                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                                                switch (checkedId) {
+                                                case R.id.Orange:
+                                                    Toast.makeText(getActivity().getApplicationContext(), "CheckedID" + checkedId, Toast.LENGTH_SHORT).show();
+                                                    Orange.setOnClickListener(
+                                                         new RadioButton.OnClickListener() {
 
-                                                }
-                                            }
-                                        );
-                                            break;
-                                        case R.id.Red:
-                                            Toast.makeText(getActivity().getApplicationContext(), "CheckedID"+checkedId, Toast.LENGTH_SHORT).show();
-                                            Red.setOnClickListener(
-                                                    new RadioButton.OnClickListener() {
+                                                                @Override
+                                                                public void onClick(View v) {
+                                                                Orange1(v);
+
+                                                         }
+                                                    }
+                                            );
+                                                break;
+                                                case R.id.Red:
+                                                    Toast.makeText(getActivity().getApplicationContext(), "CheckedID" + checkedId, Toast.LENGTH_SHORT).show();
+                                                    Red.setOnClickListener(
+                                                            new RadioButton.OnClickListener() {
 
                                                         @Override
                                                         public void onClick(View v) {
-                                                            Red1(v);
+                                                                Red1(v);
                                                         }
                                                     }
-                                        );
-                                            break;
-                                        case R.id.Yellow:
-                                            Toast.makeText(getActivity().getApplicationContext(), "CheckedID"+checkedId, Toast.LENGTH_SHORT).show();
-                                            Yellow.setOnClickListener(
-                                                    new RadioButton.OnClickListener() {
+                                            );
+                                                break;
+                                                case R.id.Yellow:
+                                                    Toast.makeText(getActivity().getApplicationContext(), "CheckedID" + checkedId, Toast.LENGTH_SHORT).show();
+                                                    Yellow.setOnClickListener(
+                                                        new RadioButton.OnClickListener() {
 
                                                         @Override
                                                         public void onClick(View v) {
                                                             Yellow1(v);
                                                         }
                                                     }
-                                        );
-                                            break;
-                                        case R.id.Green:
-                                            Toast.makeText(getActivity().getApplicationContext(), "CheckedID"+checkedId, Toast.LENGTH_SHORT).show();
-                                            Green.setOnClickListener(
-                                                    new RadioButton.OnClickListener() {
+                                            );
+                                                break;
+                                                case R.id.Green:
+                                                    Toast.makeText(getActivity().getApplicationContext(), "CheckedID" + checkedId, Toast.LENGTH_SHORT).show();
+                                                    Green.setOnClickListener(
+                                                            new RadioButton.OnClickListener() {
 
-                                                        @Override
-                                                        public void onClick(View v) {
-                                                            Green1(v);
-                                                        }
-                                                    }
-                                        );
-                                            break;
-                                        case R.id.Purple:
-                                            Toast.makeText(getActivity().getApplicationContext(), "CheckedID"+checkedId, Toast.LENGTH_SHORT).show();
-                                            Purple.setOnClickListener(
-                                                    new RadioButton.OnClickListener() {
+                                                                @Override
+                                                                public void onClick(View v) {
+                                                                    Green1(v);
+                                                                }
+                                                            }
+                                                    );
+                                                break;
+                                                case R.id.Purple:
+                                                    Toast.makeText(getActivity().getApplicationContext(), "CheckedID" + checkedId, Toast.LENGTH_SHORT).show();
+                                                    Purple.setOnClickListener(
+                                                        new RadioButton.OnClickListener() {
 
                                                         @Override
                                                         public void onClick(View v) {
                                                             Purple1(v);
                                                         }
                                                     }
-                                        );
-                                            break;
-                                        case R.id.Pink:
-                                            Toast.makeText(getActivity().getApplicationContext(), "CheckedID"+checkedId, Toast.LENGTH_SHORT).show();
-                                            Pink.setOnClickListener(
-                                                    new RadioButton.OnClickListener() {
+                                            );
+                                                break;
+                                                case R.id.Pink:
+                                                    Toast.makeText(getActivity().getApplicationContext(), "CheckedID" + checkedId, Toast.LENGTH_SHORT).show();
+                                                    Pink.setOnClickListener(
+                                                        new RadioButton.OnClickListener() {
 
                                                         @Override
                                                         public void onClick(View v) {
                                                             Pink1(v);
                                                         }
                                                     }
-                                        );
-                                            break;
-                                    }
-                                }
+                                            );
+                                                break;
+                                            }
+                                         }
+                                       }
+                                    );
+//                                }
 
-                            }
-                    );
+//                            }
+//                    );
 
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-//        Toast.makeText(getActivity().getApplicationContext(), "hello fragment", Toast.LENGTH_LONG).show();
-        //Fragment fragment = this.getTargetFragment(); //  object of next fragment
-//        GroupMemberFragment gmf = new GroupMemberFragment();
-
-//        Bundle bundle = new Bundle();
-//        bundle.putInt("position", 1);
-//        gmf.setArguments(bundle);
-
-//        FragmentManager fm = getFragmentManager();
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
 //        ft.replace(R.id.the_fragg, gmf);

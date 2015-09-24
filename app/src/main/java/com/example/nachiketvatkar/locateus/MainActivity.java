@@ -1,5 +1,6 @@
 package com.example.nachiketvatkar.locateus;
 
+import android.app.Service;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,11 +10,20 @@ import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.RadioButton;
 import android.widget.Button;
+import android.os.IBinder;
+import android.content.Context;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import com.example.nachiketvatkar.locateus.Bluetooth.MyLocalBinder;
 
 import java.io.FileNotFoundException;
 import java.util.Formatter;
 
 public class MainActivity extends ActionBarActivity {
+
+    Bluetooth nachoService;
+     boolean isBound=false;
+
    // private Formatter y;
    // private GroupColorFragment filemaker =new GroupColorFragment();
 
@@ -29,7 +39,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Intent i = new Intent(this, Bluetooth.class);
+        startService(i);
         Button IntroButton = (Button) findViewById(R.id.IntroButton);
         final RadioButton GroupRadio = (RadioButton) findViewById(R.id.GroupRadio);
         final RadioButton TeacherRadio = (RadioButton) findViewById(R.id.TeacherRadio);
@@ -38,26 +49,19 @@ public class MainActivity extends ActionBarActivity {
                 new Button.OnClickListener(){
                     public void onClick(View v){
                         if(GroupRadio.isChecked()){
+                            //Call Coms1
                             startActivity(new Intent(MainActivity.this, StudentFlow.class));
-                            /*try {
-                                filemaker.openFile("Student.txt");
-                            } catch (FileNotFoundException e) {
-                                filemaker.close();
-                            }*/
 
                         }
                         else if(TeacherRadio.isChecked()){
+                           //Coms2
                            startActivity(new Intent(MainActivity.this,TeacherFlow.class));
-                          /*  try {
-                                filemaker.openFile("Teacher.txt");
-                            } catch (FileNotFoundException e) {
-                                filemaker.close();
-                            }*/
-
                         }
                     }
                 }
         );
+        Intent intent = new Intent(this,Bluetooth.class );
+        bindService(i,nachoConnection,Context.BIND_AUTO_CREATE);
 
     }
 
@@ -84,4 +88,20 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private ServiceConnection nachoConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+        MyLocalBinder binder = (MyLocalBinder) service;
+          nachoService = binder.getService();
+            isBound = true;
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            isBound = false;
+
+        }
+    };
 }

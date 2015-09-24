@@ -41,6 +41,12 @@
             android:name=".GroupColor"
             android:label="@string/title_activity_group_color" >
         </activity>
+
+        <service
+            android:name=".Bluetooth"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>
