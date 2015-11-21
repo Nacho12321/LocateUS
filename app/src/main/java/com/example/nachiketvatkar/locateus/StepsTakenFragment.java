@@ -23,6 +23,7 @@ public class StepsTakenFragment extends StudentFlow.PlaceholderFragment{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         Button SelectAll = (Button) getView().findViewById(R.id.SelectAll);
+        Button finish = (Button) getView().findViewById(R.id.finish);
         final CheckBox FirstHelp = (CheckBox) getView().findViewById(R.id.FirstHelp);
         final CheckBox LocalHelp = (CheckBox) getView().findViewById(R.id.LocalHelp);
         final CheckBox Isos = (CheckBox) getView().findViewById(R.id.Isos);
@@ -37,6 +38,13 @@ public class StepsTakenFragment extends StudentFlow.PlaceholderFragment{
                         Isos.setChecked(true);
                         TemporaryFirstAid.setChecked(true);
 
+                    }
+                }
+        );
+        finish.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        startActivity(new Intent(getActivity(), BluetoothPairing.class));
                     }
                 }
         );

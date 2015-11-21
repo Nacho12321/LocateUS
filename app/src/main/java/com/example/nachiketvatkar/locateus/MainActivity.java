@@ -1,7 +1,10 @@
 package com.example.nachiketvatkar.locateus;
 
 import android.app.Service;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothManager;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +17,7 @@ import android.os.IBinder;
 import android.content.Context;
 import android.content.ComponentName;
 import android.content.ServiceConnection;
-import com.example.nachiketvatkar.locateus.Bluetooth.MyLocalBinder;
+//import com.example.nachiketvatkar.locateus.Bluetooth.MyLocalBinder;
 
 import java.io.FileNotFoundException;
 import java.util.Formatter;
@@ -23,6 +26,7 @@ public class MainActivity extends ActionBarActivity {
 
     Bluetooth nachoService;
      boolean isBound=false;
+    private BluetoothAdapter mBluetoothAdapter;
 
    // private Formatter y;
    // private GroupColorFragment filemaker =new GroupColorFragment();
@@ -92,7 +96,7 @@ public class MainActivity extends ActionBarActivity {
     private ServiceConnection nachoConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-        MyLocalBinder binder = (MyLocalBinder) service;
+        Bluetooth.MyLocalBinder binder = (Bluetooth.MyLocalBinder) service;
           nachoService = binder.getService();
             isBound = true;
 

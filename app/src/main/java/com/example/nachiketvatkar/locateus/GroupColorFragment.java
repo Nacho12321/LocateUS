@@ -64,7 +64,7 @@ public class GroupColorFragment extends StudentFlow.PlaceholderFragment  {
                 String s2 = st.nextToken();
                 String s3 = st.nextToken();
 //                    Toast.makeText(getActivity().getApplicationContext(), s1 + ":"+ s2 + ":" + s3, Toast.LENGTH_LONG).show();
-                String strSQL = "Insert into GroupMemberMaster (MemberId, MemberName, GroupId) Values('" + s2 + "','" + s3 + "'," + s1 + ")";
+                String strSQL = "Insert into GroupMemberMaster (MemberId, MemberName, _id) Values('" + s2 + "','" + s3 + "'," + s1 + ")";
                 db.execSQL(strSQL);
                 // to read: strSQL = "Select MemberId, MemberName from GroupMemberMaster where GroupId=" + gid + " ORDER BY MemberName"
 //                    Toast.makeText(getActivity().getApplicationContext(), strSQL, Toast.LENGTH_LONG).show();

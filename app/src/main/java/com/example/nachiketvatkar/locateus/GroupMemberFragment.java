@@ -43,7 +43,7 @@ public class GroupMemberFragment extends StudentFlow.PlaceholderFragment {
 
         DBHelper dbh = DBHelper.getInstance(getActivity().getApplicationContext());
         db = dbh.getReadableDatabase();
-        String strSQL = "Select MemberId, MemberName, GroupId as _id from GroupMemberMaster where GroupId=" + myInt + " ORDER BY MemberName";
+        String strSQL = "Select MemberId, MemberName, _id as _id from GroupMemberMaster where _id=" + myInt + " ORDER BY MemberName";
         Cursor c = db.rawQuery(strSQL, null);
 
         CursorAdapter ca = new MemberName(getActivity().getApplicationContext(), c, 0);

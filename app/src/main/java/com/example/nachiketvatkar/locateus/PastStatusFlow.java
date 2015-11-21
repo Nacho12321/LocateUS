@@ -133,9 +133,7 @@ public class PastStatusFlow extends ActionBarActivity implements ActionBar.TabLi
                 case 0:
                     return new PastStatus();
                 case 1:
-                    return new Location();
-                case 2:
-                   return new StepsTakenFragment1();
+                    return new StepsTakenFragment1();
 
             }
 
@@ -155,9 +153,8 @@ public class PastStatusFlow extends ActionBarActivity implements ActionBar.TabLi
                 case 0:
                     return "Latest Group Status";
                 case 1:
-                    return "Group's Last known Location";
-                case 2:
                     return "Group Action Plan";
+
             }
             return null;
         }
