@@ -63,7 +63,7 @@ public class BluetoothPairing extends ActionBarActivity implements BleManager.Bl
     private final static int kComponentsNameIds[] = {
             R.string.scan_connectservice_info,
             R.string.scan_connectservice_uart,
-//            R.string.scan_connectservice_pinio,
+            R.string.scan_connectservice_pinio,
             R.string.scan_connectservice_controller,
             R.string.scan_connectservice_beacon,
     };
@@ -105,7 +105,7 @@ public class BluetoothPairing extends ActionBarActivity implements BleManager.Bl
 
         // Init variables
         mBleManager = BleManager.getInstance(this);
-//        restoreRetainedDataFragment();
+        restoreRetainedDataFragment();
 
         // UI
         mScannedDevicesListView = (ExpandableHeightExpandableListView) findViewById(R.id.scannedDevicesListView);
@@ -130,7 +130,7 @@ public class BluetoothPairing extends ActionBarActivity implements BleManager.Bl
             @Override
             public void onRefresh() {
                 mScannedDevices.clear();
-                startScan(null, null);
+                startScan(null,null);
 
                 mSwipeRefreshLayout.postDelayed(new Runnable() {
                     @Override
@@ -223,7 +223,7 @@ public class BluetoothPairing extends ActionBarActivity implements BleManager.Bl
             if (mScannedDevices != null) {      // Fixed a weird bug when resuming the app (this was null on very rare occasions even if it should not be)
                 mScannedDevices.clear();
             }
-            startScan(null, null);
+            startScan(null, null);;
         }
 
         // Update UI
@@ -285,7 +285,7 @@ public class BluetoothPairing extends ActionBarActivity implements BleManager.Bl
         BleUtils.cancelBluetoothAdapterReset();
 
         // Retain data
-//        saveRetainedDataFragment();
+        saveRetainedDataFragment();
 
         // Clean
         if (mConnectingDialog != null) {
@@ -297,7 +297,7 @@ public class BluetoothPairing extends ActionBarActivity implements BleManager.Bl
 
     private void resumeScanning() {
         if (mIsScanPaused) {
-            startScan(null, null);
+            startScan(null,null);
             mIsScanPaused = mScanner == null;
         }
     }
@@ -308,38 +308,40 @@ public class BluetoothPairing extends ActionBarActivity implements BleManager.Bl
         String deviceName = device.getName();
         String title = String.format(getString(R.string.scan_connectto_dialog_title_format), deviceName != null ? deviceName : device.getAddress());
         String[] items = new String[kComponentsNameIds.length];
-        for (int i = 0; i < kComponentsNameIds.length; i++)
+        for (int i = 0; i < kComponentsNameIds.length; i++) {
             items[i] = getString(kComponentsNameIds[i]);
-
-//        builder.setTitle(title)
-//                .setItems(items, new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        switch (kComponentsNameIds[which]) {
-//                            case R.string.scan_connectservice_info: {          // Info
-//                                mComponentToStartWhenConnected = InfoActivity.class;
-//                                break;
-//                            }
-//                            case R.string.scan_connectservice_uart: {           // Uart
-//                                mComponentToStartWhenConnected = UartActivity.class;
-//                                break;
-//                            }
-//                            case R.string.scan_connectservice_pinio: {        // PinIO
-//                                mComponentToStartWhenConnected = PinIOActivity.class;
-//                                break;
-//                            }
-//                            case R.string.scan_connectservice_controller: {     // Controller
-//                                mComponentToStartWhenConnected = ControllerActivity.class;
-//                                break;
-//                            }
-//                            case R.string.scan_connectservice_beacon: {         // Beacon
-//                                mComponentToStartWhenConnected = BeaconActivity.class;
-//                                break;
-//                            }
-//                        }
-
-        if (mComponentToStartWhenConnected != null) {
-            connect(device);            // First connect to the device, and when connected go to selected activity
         }
+        builder.setTitle(title)
+                .setItems(items, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (kComponentsNameIds[which]) {
+                            case R.string.scan_connectservice_info: {          // Info
+//                                mComponentToStartWhenConnected = InfoActivity.class;
+                                break;
+                            }
+                            case R.string.scan_connectservice_uart: {           // Uart
+//                                mComponentToStartWhenConnected = UartActivity.class;
+                                break;
+                            }
+                            case R.string.scan_connectservice_pinio: {        // PinIO
+//                                mComponentToStartWhenConnected = PinIOActivity.class;
+                                break;
+                            }
+                            case R.string.scan_connectservice_controller: {     // Controller
+//                                mComponentToStartWhenConnected = ControllerActivity.class;
+                                break;
+                            }
+                            case R.string.scan_connectservice_beacon: {         // Beacon
+//                                mComponentToStartWhenConnected = BeaconActivity.class;
+                                break;
+                            }
+                        }
+
+                            if (mComponentToStartWhenConnected != null) {
+                                connect(device);// First connect to the device, and when connected go to selected activity
+                            }
+                    }
+     });
         // Show dialog
         AlertDialog dialog = builder.create();
         dialog.show();
@@ -415,6 +417,7 @@ public class BluetoothPairing extends ActionBarActivity implements BleManager.Bl
         boolean isConnecting = mBleManager.connect(this, device.getAddress());
         if (isConnecting) {
             showConnectionStatus(true);
+            System.out.println("CONNECTED TO THE DEVICE");
         }
     }
 
@@ -543,7 +546,7 @@ public class BluetoothPairing extends ActionBarActivity implements BleManager.Bl
         if (isScanning) {
             stopScanning();
         } else {
-            startScan(null, null);
+            startScan(null,null);;
         }
     }
     // endregion
@@ -565,7 +568,7 @@ public class BluetoothPairing extends ActionBarActivity implements BleManager.Bl
                 @Override
                 public void onLeScan(final BluetoothDevice device, final int rssi, byte[] scanRecord) {
                     final String deviceName = device.getName();
-                    //Log.d(TAG, "Discovered device: " + (deviceName != null ? deviceName : "<unknown>"));
+                    Log.d(TAG, "Discovered device: " + (deviceName != null ? deviceName : "<unknown>"));
 
                     BluetoothDeviceData previouslyScannedDeviceData = null;
                     if (deviceNameToScanFor == null || (deviceName != null && deviceName.equalsIgnoreCase(deviceNameToScanFor))) {       // Workaround for bug in service discovery. Discovery filtered by service uuid is not working on Android 4.3, 4.4
@@ -801,6 +804,7 @@ public class BluetoothPairing extends ActionBarActivity implements BleManager.Bl
     // region BleManagerListener
     @Override
     public void onConnected() {
+
     }
 
     @Override
